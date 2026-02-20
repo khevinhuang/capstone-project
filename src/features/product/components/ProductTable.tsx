@@ -91,7 +91,7 @@ export function ProductTable({
           const date = value ? new Date(value) : null;
           return (
             <span className="block">
-              {date && !Number.isNaN(date.getTime()) ? format(date, "MMM dd, yyyy") : '-'}
+              {date && !Number.isNaN(date.getTime()) ? format(date, "dd MMM yyyy") : '-'}
             </span>
           );
         },

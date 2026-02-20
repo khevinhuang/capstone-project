@@ -13,7 +13,7 @@ function formatPrice(price: string | number | undefined) {
 function formatDate(value: string | Date | undefined) {
   if (!value) return '-';
   const date = typeof value === 'string' ? new Date(value) : value;
-  return Number.isNaN(date.getTime()) ? '-' : format(date, "MMM dd, yyyy");
+  return Number.isNaN(date.getTime()) ? '-' : format(date, "dd MMM yyyy");
 }
 
 export default function ProductDetailPage() {

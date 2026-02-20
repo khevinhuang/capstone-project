@@ -106,8 +106,8 @@ export default function ProductPage() {
     void navigate(`/product/${product.id}`);
   };
   const onUpdate = (product: Product) => {
-    dispatch({ type: "OPEN_UPDATE", payload: product });
-    // void navigate(`/product/update/${product.id}`);
+    // dispatch({ type: "OPEN_UPDATE", payload: product });
+    void navigate(`/product/update/${product.id}`);
   };
   const handleUpdate = (id: Product['id'], updates: UpdateProductInput) => {
     const payload: ProductPayload = {
