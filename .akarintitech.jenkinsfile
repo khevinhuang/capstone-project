@@ -1,0 +1,25 @@
+@Library('jenkins-ci-automation@sharelib') _
+
+
+akarintiPipeline([
+
+        allowedBranch: ["development", "release/.*"],
+
+        infra        : [
+                        "dev":
+                             ["branch":"development", "setup":"ait-internal-dev"], 
+                        "stg":
+                             ["branch":"release/.*", "setup":"ait-internal-stg"] 
+                       ],
+
+        targetPort   : 3000,
+
+        buildEnv     : "yes",
+        
+        lang         : "js",
+        
+        addPubUrl    : "yes",
+
+        dockerfile   : "Dockerfile"
+
+])

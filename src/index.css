@@ -1,0 +1,505 @@
+@import 'tailwindcss';
+
+/* Set Roboto as primary font family (loaded via index.html) */
+:root {
+  font-family:
+    'Roboto',
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+@theme {
+  --color-primary-25: oklch(0.984 0.016 206);
+  --color-primary-50: oklch(0.962 0.028 206);
+  --color-primary-100: oklch(0.913 0.052 206);
+  --color-primary-200: oklch(0.827 0.089 206);
+  --color-primary-300: oklch(0.725 0.117 228);
+  --color-primary-400: oklch(0.605 0.119 233);
+  --color-primary-500: oklch(0.381 0.125 248);
+  --color-primary-600: oklch(0.323 0.108 253);
+  --color-primary-700: oklch(0.267 0.091 258);
+  --color-primary-800: oklch(0.222 0.077 263);
+  --color-primary-900: oklch(0.179 0.065 268);
+
+  --color-secondary-25: oklch(0.988 0.01 190);
+  --color-secondary-50: oklch(0.975 0.025 170);
+  --color-secondary-100: oklch(0.945 0.058 165);
+  --color-secondary-200: oklch(0.9 0.095 162);
+  --color-secondary-300: oklch(0.85 0.125 170);
+  --color-secondary-400: oklch(0.79 0.145 175);
+  --color-secondary-500: oklch(0.718 0.155 181);
+  --color-secondary-600: oklch(0.63 0.125 185);
+  --color-secondary-700: oklch(0.53 0.095 195);
+  --color-secondary-800: oklch(0.44 0.075 205);
+  --color-secondary-900: oklch(0.352 0.06 220);
+
+  --color-tertiary-25: oklch(0.985 0.015 195);
+  --color-tertiary-50: oklch(0.97 0.03 195);
+  --color-tertiary-100: oklch(0.935 0.06 195);
+  --color-tertiary-200: oklch(0.91 0.08 195);
+  --color-tertiary-300: oklch(0.88 0.1 195);
+  --color-tertiary-400: oklch(0.82 0.12 200);
+  --color-tertiary-500: oklch(0.685 0.138 210);
+  --color-tertiary-600: oklch(0.58 0.11 215);
+  --color-tertiary-700: oklch(0.48 0.09 220);
+  --color-tertiary-800: oklch(0.38 0.07 230);
+  --color-tertiary-900: oklch(0.295 0.055 240);
+
+  --color-success-25: oklch(0.985 0.015 142);
+  --color-success-50: oklch(0.965 0.035 142);
+  --color-success-100: oklch(0.935 0.065 142);
+  --color-success-200: oklch(0.88 0.105 142);
+  --color-success-300: oklch(0.78 0.145 142);
+  --color-success-400: oklch(0.68 0.155 142);
+  --color-success-500: oklch(0.518 0.169 142);
+  --color-success-600: oklch(0.445 0.145 142);
+  --color-success-700: oklch(0.385 0.125 142);
+  --color-success-800: oklch(0.325 0.105 142);
+  --color-success-900: oklch(0.265 0.085 142);
+
+  --color-info-25: oklch(0.98 0.015 260);
+  --color-info-50: oklch(0.96 0.03 260);
+  --color-info-100: oklch(0.91 0.06 260);
+  --color-info-200: oklch(0.84 0.09 260);
+  --color-info-300: oklch(0.72 0.12 260);
+  --color-info-400: oklch(0.58 0.14 260);
+  --color-info-500: oklch(0.421 0.165 260);
+  --color-info-600: oklch(0.36 0.14 265);
+  --color-info-700: oklch(0.3 0.115 270);
+  --color-info-800: oklch(0.24 0.095 275);
+  --color-info-900: oklch(0.18 0.075 280);
+
+  --color-warning-25: oklch(0.985 0.02 95);
+  --color-warning-50: oklch(0.965 0.04 90);
+  --color-warning-100: oklch(0.94 0.08 85);
+  --color-warning-200: oklch(0.89 0.12 85);
+  --color-warning-300: oklch(0.84 0.16 80);
+  --color-warning-400: oklch(0.74 0.17 75);
+  --color-warning-500: oklch(0.638 0.182 60);
+  --color-warning-600: oklch(0.56 0.16 50);
+  --color-warning-700: oklch(0.48 0.13 45);
+  --color-warning-800: oklch(0.4 0.1 40);
+  --color-warning-900: oklch(0.32 0.08 35);
+
+  --color-danger-25: oklch(0.985 0.01 25);
+  --color-danger-50: oklch(0.965 0.025 25);
+  --color-danger-100: oklch(0.93 0.055 25);
+  --color-danger-200: oklch(0.85 0.09 28);
+  --color-danger-300: oklch(0.72 0.14 30);
+  --color-danger-400: oklch(0.58 0.17 30);
+  --color-danger-500: oklch(0.449 0.19 29);
+  --color-danger-600: oklch(0.38 0.16 28);
+  --color-danger-700: oklch(0.32 0.13 27);
+  --color-danger-800: oklch(0.26 0.1 26);
+  --color-danger-900: oklch(0.2 0.08 25);
+
+  --color-neutral-25: oklch(0.99 0.002 260);
+  --color-neutral-50: oklch(0.98 0.005 260);
+  --color-neutral-100: oklch(0.96 0.01 260);
+  --color-neutral-200: oklch(0.92 0.015 260);
+  --color-neutral-300: oklch(0.86 0.02 260);
+  --color-neutral-400: oklch(0.7 0.025 260);
+  --color-neutral-500: oklch(0.556 0.031 257);
+  --color-neutral-600: oklch(0.42 0.032 260);
+  --color-neutral-700: oklch(0.3 0.033 262);
+  --color-neutral-800: oklch(0.22 0.034 264);
+  --color-neutral-900: oklch(0.18 0.034 266);
+
+  --color-black: oklch(0 0 0);
+  --color-white: oklch(1 0 0);
+  --color-disabled: oklch(0.417 0.113 244);
+  --tracking-tight-2: -0.02em;
+
+  /* ========================================
+     AIT DESIGN SYSTEM TOKENS (from Figma)
+     Use ait- prefix for AIT branding
+     ======================================== */
+
+  /* AIT Primary Colors */
+  --color-ait-primary-50: #e6f4fb;
+  --color-ait-primary-100: #cce9f7;
+  --color-ait-primary-200: #99d3ef;
+  --color-ait-primary-400: #2b80af;
+  --color-ait-primary-500: #00487a;
+  --color-ait-primary-600: #003768;
+
+  /* AIT Success Colors */
+  --color-ait-success-25: #f7fef6;
+  --color-ait-success-50: #ecfdf3;
+  --color-ait-success-200: #a9efc5;
+  --color-ait-success-500: #20872e;
+  --color-ait-success-700: #054f31;
+
+  /* AIT Danger Colors */
+  --color-ait-danger-25: #fffbfa;
+  --color-ait-danger-50: #fef3f2;
+  --color-ait-danger-100: #fee4e2;
+  --color-ait-danger-200: #fecdca;
+  --color-ait-danger-500: #a01713;
+  --color-ait-danger-600: #d92d20;
+  --color-ait-danger-700: #b42318;
+
+  /* AIT Warning Colors */
+  --color-ait-warning-50: #fffaeb;
+  --color-ait-warning-200: #f9e296;
+  --color-ait-warning-700: #b54708;
+  --color-ait-warning-900: #603200;
+
+  /* AIT Info Colors */
+  --color-ait-info-50: #f0f9ff;
+  --color-ait-info-700: #026aa2;
+
+  /* AIT Neutral Colors (Full Scale) */
+  --color-ait-neutral-50: #f9fafb;
+  --color-ait-neutral-100: #f2f4f7;
+  --color-ait-neutral-200: #eaecf0;
+  --color-ait-neutral-300: #d0d5dd;
+  --color-ait-neutral-400: #98a2b3;
+  --color-ait-neutral-500: #667085;
+  --color-ait-neutral-600: #475467;
+  --color-ait-neutral-700: #344054;
+  --color-ait-neutral-800: #1d2939;
+  --color-ait-neutral-900: #101828;
+
+  /* AIT Base Colors */
+  --color-ait-white: #ffffff;
+  --color-ait-black: #000000;
+
+  /* AIT Drop Shadow */
+  --shadow-ait-lg: 0 4px 6px -2px rgba(16, 24, 40, 0.03), 0 12px 16px -4px rgba(16, 24, 40, 0.08);
+  --shadow-ait-xl: 0 8px 8px -4px rgba(16, 24, 40, 0.03), 0 20px 24px -4px rgba(16, 24, 40, 0.08);
+}
+
+@utility text-display-lg {
+  font-size: 8.75rem;
+  line-height: 10rem;
+  letter-spacing: var(--tracking-tight-2);
+}
+
+@utility text-display-md {
+  font-size: 6rem;
+  line-height: 7.5rem;
+  letter-spacing: var(--tracking-tight-2);
+}
+
+@utility text-display-sm {
+  font-size: 4.5rem;
+  line-height: 6rem;
+  letter-spacing: var(--tracking-tight-2);
+}
+
+@utility text-h1 {
+  font-size: 3.75rem;
+  line-height: 5rem;
+  letter-spacing: var(--tracking-tight-2);
+}
+
+@utility text-h2 {
+  font-size: 3rem;
+  line-height: 4rem;
+  letter-spacing: var(--tracking-tight-2);
+}
+
+@utility text-h3 {
+  font-size: 2.25rem;
+  line-height: 3rem;
+  letter-spacing: var(--tracking-tight-2);
+}
+
+@utility text-h4 {
+  font-size: 1.875rem;
+  line-height: 2.5rem;
+}
+
+@utility text-h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@utility text-h6 {
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+@utility text-caption {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@utility text-md {
+  @apply text-base;
+}
+
+/* ========================================
+   AIT TYPOGRAPHY UTILITIES (from Figma)
+   Use ait- prefix for AIT branding
+   ======================================== */
+
+/* AIT Display */
+@utility text-ait-display-sm {
+  font-size: 4.5rem; /* 72px */
+  line-height: 6rem; /* 96px */
+  font-weight: 500;
+  letter-spacing: -0.125rem; /* -2px */
+}
+
+/* AIT Headings */
+@utility text-ait-h1 {
+  font-size: 3.75rem; /* 60px */
+  line-height: 5rem; /* 80px */
+  font-weight: 600;
+  letter-spacing: -0.125rem; /* -2px */
+}
+
+@utility text-ait-h2-bold {
+  font-size: 3rem; /* 48px */
+  line-height: 4rem; /* 64px */
+  font-weight: 700;
+  letter-spacing: -0.125rem; /* -2px */
+}
+
+@utility text-ait-h3-bold {
+  font-size: 2.25rem; /* 36px */
+  line-height: 3rem; /* 48px */
+  font-weight: 700;
+  letter-spacing: -0.125rem; /* -2px */
+}
+
+@utility text-ait-h3-semibold {
+  font-size: 2.25rem; /* 36px */
+  line-height: 3rem; /* 48px */
+  font-weight: 600;
+  letter-spacing: -0.125rem; /* -2px */
+}
+
+@utility text-ait-h5-regular {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-ait-h5-medium {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+@utility text-ait-h5-semibold {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+@utility text-ait-h5-bold {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+@utility text-ait-h6 {
+  font-size: 1.25rem; /* 20px */
+  line-height: 2rem; /* 32px */
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* AIT Body Text */
+@utility text-ait-body-lg-regular {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-ait-body-lg-medium {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+@utility text-ait-body-lg-semibold {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+@utility text-ait-body-md-regular {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-ait-body-md-semibold {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+@utility text-ait-body-md-bold {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+@utility text-ait-body-sm-regular {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-ait-body-sm-semibold {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* AIT Caption Text */
+@utility text-ait-caption-md-regular {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@utility text-ait-caption-md-bold {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+@utility text-ait-caption-sm {
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1rem; /* 16px */
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* AIT Shadow Utility */
+@utility shadow-ait-lg {
+  box-shadow: var(--shadow-ait-lg);
+}
+
+@utility shadow-ait-xl {
+  box-shadow: var(--shadow-ait-xl);
+}
+
+/* Accordion Animations */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@utility animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+@utility animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+/* Dialog Animations */
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-zoom-in {
+  from {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes dialog-zoom-out {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+@utility animate-in {
+  animation-duration: 200ms;
+  animation-fill-mode: both;
+}
+
+@utility animate-out {
+  animation-duration: 150ms;
+  animation-fill-mode: both;
+}
+
+@utility fade-in-0 {
+  animation-name: dialog-fade-in;
+}
+
+@utility fade-out-0 {
+  animation-name: dialog-fade-out;
+}
+
+@utility zoom-in-95 {
+  animation-name: dialog-zoom-in;
+}
+
+@utility zoom-out-95 {
+  animation-name: dialog-zoom-out;
+}
+
+/* Toast Animations */
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@utility slide-in-from-right-full {
+  animation-name: slide-in-from-right;
+  animation-duration: 300ms;
+  animation-fill-mode: both;
+}
