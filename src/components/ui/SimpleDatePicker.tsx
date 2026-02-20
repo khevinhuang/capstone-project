@@ -186,15 +186,15 @@ export function SimpleDatePicker({
         className={cn(
           'w-full flex items-center justify-between gap-3 px-4 py-2.5 rounded-lg border text-ait-body-md-regular transition-colors bg-white',
           variant === 'default' &&
-            'border-ait-neutral-300 focus:outline-none focus:ring-2 focus:ring-ait-primary-500 focus:border-transparent',
+          'border-ait-neutral-300 focus:outline-none focus:ring-2 focus:ring-ait-primary-500 focus:border-transparent',
           variant === 'error' &&
-            'border-ait-danger-500 focus:outline-none focus:ring-2 focus:ring-ait-danger-500 focus:border-transparent',
+          'border-ait-danger-500 focus:outline-none focus:ring-2 focus:ring-ait-danger-500 focus:border-transparent',
           disabled && 'opacity-50 cursor-not-allowed bg-ait-neutral-50',
           !disabled && 'hover:border-ait-neutral-400'
         )}
       >
         <span className={cn(!date && 'text-ait-neutral-500')}>
-          {date ? format(date, 'MMM d, yyyy') : placeholder}
+          {date ? format(date, 'dd MMM yyyy') : placeholder}
         </span>
         <CalendarIcon className="h-4 w-4 text-ait-neutral-500 flex-shrink-0" />
       </button>
