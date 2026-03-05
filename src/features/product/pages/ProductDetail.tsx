@@ -3,11 +3,17 @@ import { format } from "date-fns";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProductDetail } from "../hooks/useProductDetail";
+import { toDisplayPrice } from "../utils/price";
 
 function formatPrice(price: string | number | undefined) {
-  const value = Number(price);
-  if (Number.isNaN(value)) return '-';
-  return `$${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  if (Number.isNaN(Number(price))) return '-';
+  const value = toDisplayPrice(price);
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(value);
 }
 
 function formatDate(value: string | Date | undefined) {

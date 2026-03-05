@@ -55,7 +55,7 @@ export function TablePagination<TData>({ table }: TablePaginationProps<TData>) {
           onChange={(e) => table.setPageSize(Number(e.target.value))}
           className="rounded-md border border-neutral-300 px-2 py-1 text-sm"
         >
-          {[10, 20, 30, 40, 50].map((size) => (
+          {[10, 25, 50, 100].map((size) => (
             <option key={size} value={size}>
               {size}
             </option>

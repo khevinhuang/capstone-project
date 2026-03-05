@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { Plus } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Product } from "../types";
+import { toDisplayPrice } from "../utils/price";
 
 interface ProductTableProps {
   products: Product[];
@@ -37,10 +38,10 @@ export function ProductTable({
     );
   }, [products]);
   const parsePrice = (price: string | number | undefined): number => {
-    if (typeof price === 'number') return price;
+    if (typeof price === 'number') return toDisplayPrice(price);
     if (!price) return 0;
     const clean = String(price).replace(/[^\d.]/g, '');
-    return parseFloat(clean) || 0;
+    return toDisplayPrice(parseFloat(clean) || 0);
   };
   const filteredProducts = useMemo(() => {
     if (selectedCategory === 'all') return products;
@@ -69,10 +70,12 @@ export function ProductTable({
         accessorFn: (row) => parsePrice(row.price),
         cell: ({ row }) => (
           <span className="block">
-            ${Number(row.original.price || 0).toLocaleString('en-US', {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
+            {new Intl.NumberFormat('id-ID', {
+              style: 'currency',
+              currency: 'IDR',
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            }).format(toDisplayPrice(row.original.price || 0))}
           </span>
         )
       },

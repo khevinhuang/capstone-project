@@ -9,6 +9,7 @@ import { useProductDetail } from '../hooks/useProductDetail';
 import { useProductMutations } from '../hooks/useProductMutation';
 import { useProductStore } from '../store/product.store';
 import type { ProductPayload, UpdateProductInput } from '../types';
+import { scalePrice, toEditablePrice } from '../utils/price';
 
 const MAX_NAME_LENGTH = 100;
 const MAX_CATEGORY_LENGTH = 50;
@@ -72,7 +73,7 @@ export default function UpdateProductPage() {
       name: product.name,
       description: product.description,
       category: product.category,
-      price: String(product.price),
+      price: toEditablePrice(product.price),
       stock: String(product.stock),
       createAt: formatDateInput(product.createAt),
     };
@@ -140,7 +141,7 @@ export default function UpdateProductPage() {
       name: formData.name.trim(),
       category: formData.category.trim(),
       description: formData.description.trim(),
-      price: Number(formData.price),
+      price: scalePrice(formData.price),
       stock: Number(formData.stock),
       createAt: new Date(formData.createAt).toISOString(),
       avatar: product.avatar ?? '',

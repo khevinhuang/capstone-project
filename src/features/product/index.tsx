@@ -10,6 +10,7 @@ import { useProducts } from "./hooks/useProduct";
 import { useProductMutations } from "./hooks/useProductMutation";
 import { useProductStore } from "./store/product.store";
 import { Product, ProductPayload, UpdateProductInput } from "./types";
+import { scalePrice } from "./utils/price";
 
 interface ProductUiState {
   updateDialogOpen: boolean;
@@ -114,7 +115,7 @@ export default function ProductPage() {
       name: (updates.name ?? '').trim(),
       category: (updates.category ?? '').trim(),
       description: (updates.description ?? '').trim(),
-      price: Number(updates.price ?? 0),
+      price: scalePrice(updates.price ?? 0),
       stock: Number(updates.stock ?? 0),
       createAt: updates.createAt ?? new Date().toISOString(),
       avatar: uiState.selectedProduct?.avatar ?? '',

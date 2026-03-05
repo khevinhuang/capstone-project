@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useProductMutations } from '../hooks/useProductMutation';
 import { useProductStore } from '../store/product.store';
 import type { ProductPayload } from '../types';
+import { scalePrice } from '../utils/price';
 
 const MAX_NAME_LENGTH = 100;
 const MAX_CATEGORY_LENGTH = 50;
@@ -107,7 +108,7 @@ export function AddProductPage() {
       name: formData.name.trim(),
       category: formData.category.trim(),
       description: formData.description.trim(),
-      price: Number(formData.price),
+      price: scalePrice(formData.price),
       stock: Number(formData.stock),
       createAt: new Date(formData.createAt).toISOString(),
       avatar: '',

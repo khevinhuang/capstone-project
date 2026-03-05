@@ -7,6 +7,7 @@ import { AlertCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useProductStore } from "../store/product.store";
 import type { Product, UpdateProductInput } from "../types";
+import { toEditablePrice } from "../utils/price";
 
 interface UpdateProductDialogProps {
   open: boolean;
@@ -68,7 +69,7 @@ export function UpdateProductDialog({
         name: product.name,
         description: product.description,
         category: product.category,
-        price: String(product.price),
+        price: toEditablePrice(product.price),
         stock: String(product.stock),
         createAt: formatDateInput(product.createAt),
       };
